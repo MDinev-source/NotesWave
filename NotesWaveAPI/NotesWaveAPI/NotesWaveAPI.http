@@ -1,0 +1,6 @@
+@NotesWaveAPI_HostAddress = http://localhost:5114
+
+GET {{NotesWaveAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
