@@ -1,9 +1,10 @@
 ﻿namespace NotesWave.Data.Models.Description
 {
+    using NotesWave.Data.Models.Common;
     using NotesWave.Data.Models.Enums;
     using System.ComponentModel.DataAnnotations;
 
-    public class Description
+    public class Description : BaseDeletableModel
     {
         public Description()
         {
