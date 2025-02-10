@@ -9,7 +9,7 @@
         public Note()
         {
             this.Id = Guid.NewGuid().ToString();
-            this.Notes = new HashSet<NoteRels>();
+            this.RelatedNotes = new HashSet<NoteRels>();
             this.NoteDescriptions = new HashSet<NoteDescription>();
         }
 
@@ -26,7 +26,7 @@
         [Required]
         public NoteState state { get; set; }
 
-        public virtual ICollection<NoteRels> Notes { get; set; }
+        public virtual ICollection<NoteRels> RelatedNotes { get; set; }
 
         public virtual ICollection<NoteDescription> NoteDescriptions { get; set; }
     }
