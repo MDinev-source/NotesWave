@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesWaveAPI", "NotesWaveAPI\NotesWaveAPI.csproj", "{8077FAB3-599F-4A0A-AC7B-5C0DA35D8549}"
 EndProject
@@ -10,6 +10,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{AA332625-D866-42A5-A047-03BAF0FD5F1A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesWave.Data.Models", "NotesWave.Data.Models\NotesWave.Data.Models.csproj", "{82B2CC9F-DC6B-4B4E-8CC6-42F5F7262EE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{7A843125-589F-42AC-BA3B-3BE31A8400DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotesWave.Data", "Data\NotesWave.Data.csproj", "{BED8A4DD-0EA9-4F5C-9648-C590EBB8B803}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +29,10 @@ Global
 		{82B2CC9F-DC6B-4B4E-8CC6-42F5F7262EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82B2CC9F-DC6B-4B4E-8CC6-42F5F7262EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82B2CC9F-DC6B-4B4E-8CC6-42F5F7262EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BED8A4DD-0EA9-4F5C-9648-C590EBB8B803}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BED8A4DD-0EA9-4F5C-9648-C590EBB8B803}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BED8A4DD-0EA9-4F5C-9648-C590EBB8B803}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BED8A4DD-0EA9-4F5C-9648-C590EBB8B803}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +40,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{AA332625-D866-42A5-A047-03BAF0FD5F1A} = {E703F330-C321-4FA2-987C-433C5CB5C862}
 		{82B2CC9F-DC6B-4B4E-8CC6-42F5F7262EE8} = {AA332625-D866-42A5-A047-03BAF0FD5F1A}
+		{7A843125-589F-42AC-BA3B-3BE31A8400DF} = {E703F330-C321-4FA2-987C-433C5CB5C862}
+		{BED8A4DD-0EA9-4F5C-9648-C590EBB8B803} = {7A843125-589F-42AC-BA3B-3BE31A8400DF}
 	EndGlobalSection
 EndGlobal
