@@ -8,16 +8,9 @@
 
     public class NotesWaveDBContext : DbContext
     {
-        protected readonly IConfiguration Configuration;
-        protected NotesWaveDBContext(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public NotesWaveDBContext(DbContextOptionsBuilder options)
-        {
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
-        }
+        public NotesWaveDBContext(DbContextOptions<NotesWaveDBContext> options)
+        : base(options)
+        { }
 
         public DbSet<Note> Notes { get; set; }
         public DbSet<NoteDescription> NoteDescriptions { get; set; }
@@ -42,9 +35,22 @@
 
             builder.Entity<NoteDescription>().HasKey(e => new { e.NoteID, e.DescriptionID });
 
-            builder.Entity<NoteRels>().HasKey(e => new { e.NoteID, e.NoteRelID });
-
             builder.Entity<NoteSketch>().HasKey(e => new { e.NoteID, e.SketchID });
+
+            builder.Entity<NoteRels>()
+            .HasKey(nr => new { nr.NoteID, nr.NoteRelID });
+
+            builder.Entity<NoteRels>()
+                .HasOne(nr => nr.Note)
+                .WithMany(n => n.RelatedNotes)
+                .HasForeignKey(nr => nr.NoteID)
+                .OnDelete(DeleteBehavior.Restrict); // Prevents cascade delete issues
+
+            builder.Entity<NoteRels>()
+                .HasOne(nr => nr.NoteRel)
+                .WithMany()
+                .HasForeignKey(nr => nr.NoteRelID)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
