@@ -1,4 +1,6 @@
 using NoteWaves.Data;
+using NotesWave.Services;
+using NotesWave.Services.Contracts;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<NotesWaveDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+builder.Services.AddTransient<INotesService, NotesService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
