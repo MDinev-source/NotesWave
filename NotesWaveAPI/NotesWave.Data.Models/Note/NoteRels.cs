@@ -1,6 +1,8 @@
-﻿namespace NotesWave.Data.Models.Note
+﻿using NotesWave.Data.Models.Common;
+
+namespace NotesWave.Data.Models.Note
 {
-    public class NoteRels
+    public class NoteRels : BaseDeletableModel
     {
         public string NoteID { get; set; }
         public Note Note { get; set; }
