@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Data\NotesWave.Data.csproj" />
+    <ProjectReference Include="..\NotesWave.Services\NotesWave.Services.csproj" />
   </ItemGroup>
 
 </Project>
