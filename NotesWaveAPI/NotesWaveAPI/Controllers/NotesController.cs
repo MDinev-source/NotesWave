@@ -1,10 +1,8 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using NotesWave.Data.Models.Note;
-using NotesWave.Services.Contracts;
-
 namespace NotesWaveAPI.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+    using NotesWave.Services.Contracts;
+
     [ApiController]
     [Route("[controller]")]
     public class NotesController : ControllerBase
