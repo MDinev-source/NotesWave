@@ -21,7 +21,7 @@
         public string Title { get; set; }
 
         [Required]
-        public NoteState state { get; set; }
+        public NoteState State { get; set; }
 
         public virtual ICollection<NoteRels> RelatedNotes { get; set; }
 
