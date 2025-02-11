@@ -20,9 +20,6 @@
         [MaxLength(50)]
         public string Title { get; set; }
 
-        [MaxLength(200)]
-        public string? Description { get; set; }
-
         [Required]
         public NoteState state { get; set; }
 
