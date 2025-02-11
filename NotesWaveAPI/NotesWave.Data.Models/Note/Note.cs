@@ -11,6 +11,7 @@
             this.Id = Guid.NewGuid().ToString();
             this.RelatedNotes = new HashSet<NoteRels>();
             this.NoteDescriptions = new HashSet<NoteDescription>();
+            this.NoteSketches = new HashSet<NoteSketch>();
         }
 
         [Key]
@@ -26,5 +27,7 @@
         public virtual ICollection<NoteRels> RelatedNotes { get; set; }
 
         public virtual ICollection<NoteDescription> NoteDescriptions { get; set; }
+
+        public virtual ICollection<NoteSketch> NoteSketches { get; set; }
     }
 }
