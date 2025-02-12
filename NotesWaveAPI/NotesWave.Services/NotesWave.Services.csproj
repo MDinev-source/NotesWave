@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Data\NotesWave.Data.csproj" />
     <ProjectReference Include="..\NotesWave.Data.Models\NotesWave.Data.Models.csproj" />
+    <ProjectReference Include="..\NotesWave.ViewModels\NotesWave.RequestModels.csproj" />
   </ItemGroup>
 
 </Project>
