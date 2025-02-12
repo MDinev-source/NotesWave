@@ -1,6 +1,8 @@
 namespace NotesWaveAPI.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
+    using NotesWave.Data.Models.Note;
+    using NotesWave.RequestModels.Notes;
     using NotesWave.Services.Contracts;
 
     [ApiController]
@@ -19,9 +21,17 @@ namespace NotesWaveAPI.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var notes = await notesService.GetAll();
+            var notes = await this.notesService.GetAll();
 
             return Ok(notes);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateNoteRequestModel createNoteRequestModel)
+        {
+            string noteId = await this.notesService.Create(createNoteRequestModel);
+
+            return Created(nameof(this.Create), noteId);
         }
     }
 }
