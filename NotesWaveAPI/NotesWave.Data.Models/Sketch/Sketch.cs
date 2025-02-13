@@ -1,7 +1,7 @@
 ﻿namespace NotesWave.Data.Models.Sketch
 {
-    using System.ComponentModel.DataAnnotations;
     using NotesWave.Data.Models.Common;
+    using System.ComponentModel.DataAnnotations;
 
     public class Sketch : BaseDeletableModel
     {

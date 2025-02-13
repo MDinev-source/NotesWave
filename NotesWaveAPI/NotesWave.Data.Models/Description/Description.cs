@@ -15,9 +15,9 @@
         public string Id { get; set; }
 
         [MaxLength(200)]
-        public string? Text { get; set; }
+        public string? Text => "";
 
         [Required]
-        public DescriptionType type { get; set; }
+        public DescriptionType type => DescriptionType.Title;
     }
 }
