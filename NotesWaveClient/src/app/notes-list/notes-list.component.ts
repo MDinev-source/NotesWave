@@ -17,11 +17,9 @@ export class NotesListComponent implements OnInit {
       this.fetchNotes();
     }
 
-    fetchNotes(){
-      this.noteService
-      .getNotes()
-      .subscribe(notes => {
-          this.notes = notes
-        })
+    fetchNotes(): void {
+      this.noteService.getNotes().subscribe(notes => {
+        this.notes = notes;
+      });
     }
 }

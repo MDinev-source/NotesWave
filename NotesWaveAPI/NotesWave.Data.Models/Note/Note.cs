@@ -4,6 +4,7 @@
     using NotesWave.Data.Models.Common;
     using System.ComponentModel.DataAnnotations;
     using DescModel = NotesWave.Data.Models.Description;
+    using System.Text.Json.Serialization;
 
     public class Note : BaseDeletableModel
     {
@@ -23,7 +24,8 @@
         public string Title { get; set; }
 
         [Required]
-        public NoteState State { get; set; }
+        [JsonConverter(typeof(JsonStringEnumConverter))]
+        public NoteState State => NoteState.New;
 
         public virtual ICollection<NoteRels> RelatedNotes { get; set; }
 

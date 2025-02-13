@@ -1,1 +1,31 @@
-<p>note-add works!</p>
+<div class="container mt-4">
+    <h2>Add New Note</h2>
+    <form (ngSubmit)="addNote()" #addNoteForm="ngForm">
+      <div class="form-group">
+        <label for="noteTitle">Title</label>
+        <input
+          type="text"
+          id="noteTitle"
+          class="form-control"
+          [(ngModel)]="newNote.title"
+          name="title"
+          required
+          placeholder="Enter title"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="noteDescription">Description</label>
+        <textarea
+          id="noteDescription"
+          class="form-control"
+          [(ngModel)]="newNote.description"
+          name="description"
+          rows="3"
+          placeholder="Enter description"
+        ></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!addNoteForm.valid">Add Note</button>
+    </form>
+  </div>
