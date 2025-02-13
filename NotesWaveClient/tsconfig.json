@@ -13,10 +13,10 @@
     "isolatedModules": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES6",
-    "module": "ES2022"
+    "module": "NodeNext"
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
