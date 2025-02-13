@@ -3,6 +3,7 @@
     using NotesWave.Data.Models.Common;
     using NotesWave.Data.Models.Enums;
     using System.ComponentModel.DataAnnotations;
+    using System.Text.Json.Serialization;
 
     public class Description : BaseDeletableModel
     {
@@ -18,6 +19,7 @@
         public string? Text => "";
 
         [Required]
+        [JsonConverter(typeof(JsonStringEnumConverter))]
         public DescriptionType type => DescriptionType.Title;
     }
 }
