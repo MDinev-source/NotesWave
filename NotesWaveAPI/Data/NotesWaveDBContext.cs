@@ -13,7 +13,6 @@
         { }
 
         public DbSet<Note> Notes { get; set; }
-        public DbSet<NoteDescription> NoteDescriptions { get; set; }
         public DbSet<NoteRels> NoteRels { get; set; }
         public DbSet<NoteSketch> NoteSketches { get; set; }
         public DbSet<Description> Descriptions { get; set; }
@@ -32,8 +31,6 @@
             {
                 foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
             }
-
-            builder.Entity<NoteDescription>().HasKey(e => new { e.NoteID, e.DescriptionID });
 
             builder.Entity<NoteSketch>().HasKey(e => new { e.NoteID, e.SketchID });
 

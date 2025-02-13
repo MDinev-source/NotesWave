@@ -16,4 +16,8 @@ export class NoteService {
   getNotes() : Observable<Array<Note>> {
     return this.http.get<Array<Note>>(this.notePath)
   }
+
+  createNote(data: Note) : Observable<Note> {
+    return this.http.post<Note>(this.notePath, data)
+  }
 }

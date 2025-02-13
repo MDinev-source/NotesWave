@@ -1,8 +1,9 @@
 ﻿namespace NotesWave.Data.Models.Note
 {
-    using NotesWave.Data.Models.Common;
     using NotesWave.Data.Models.Enums;
+    using NotesWave.Data.Models.Common;
     using System.ComponentModel.DataAnnotations;
+    using DescModel = NotesWave.Data.Models.Description;
 
     public class Note : BaseDeletableModel
     {
@@ -10,7 +11,7 @@
         {
             this.Id = Guid.NewGuid().ToString();
             this.RelatedNotes = new HashSet<NoteRels>();
-            this.NoteDescriptions = new HashSet<NoteDescription>();
+            this.Descriptions = new HashSet<DescModel.Description>();
             this.NoteSketches = new HashSet<NoteSketch>();
         }
 
@@ -26,7 +27,7 @@
 
         public virtual ICollection<NoteRels> RelatedNotes { get; set; }
 
-        public virtual ICollection<NoteDescription> NoteDescriptions { get; set; }
+        public virtual ICollection<DescModel.Description> Descriptions { get; set; }
 
         public virtual ICollection<NoteSketch> NoteSketches { get; set; }
     }
