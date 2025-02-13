@@ -1,6 +1,6 @@
 import { NoteRel } from "./NoteRel";
 import { NoteSketch } from "./NoteSketch";
-import { NoteDescription } from "./NoteDescription";
+import { Description } from "./Description";
 
 export interface Note{
     id: string;
@@ -8,5 +8,5 @@ export interface Note{
     state : string;
     noteRels : Array<NoteRel>;
     noteSketches : Array<NoteSketch>;
-    noteDescriptions : Array<NoteDescription>;
+    noteDescriptions : Array<Description>;
 }
