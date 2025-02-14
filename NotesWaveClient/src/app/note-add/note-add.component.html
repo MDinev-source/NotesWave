@@ -1,31 +1,37 @@
-<div class="container mt-4">
-    <h2>Add New Note</h2>
-    <form (ngSubmit)="addNote()" #addNoteForm="ngForm">
+<div class="container mt-5">
+  <!-- Form to add a new note -->
+  <div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+      <h2 class="mb-0">Add New Note</h2>
+    </div>
+    <div class="card-body">
       <div class="form-group">
-        <label for="noteTitle">Title</label>
         <input
           type="text"
-          id="noteTitle"
           class="form-control"
-          [(ngModel)]="newNote.title"
-          name="title"
-          required
-          placeholder="Enter title"
+          [(ngModel)]="newNoteTitle"
+          placeholder="Enter note title"
         />
       </div>
-  
-      <div class="form-group">
-        <label for="noteDescription">Description</label>
-        <textarea
-          id="noteDescription"
-          class="form-control"
-          [(ngModel)]="newNote.description"
-          name="description"
-          rows="3"
-          placeholder="Enter description"
-        ></textarea>
-      </div>
-  
-      <button type="submit" class="btn btn-primary" [disabled]="!addNoteForm.valid">Add Note</button>
-    </form>
+      <button class="btn btn-success" (click)="addNote()">Add Note</button>
+    </div>
   </div>
+
+  <div *ngIf="note" class="card">
+    <div class="card-header bg-secondary text-white">
+      <h2 class="mb-0">{{ note.title }}</h2>
+    </div>
+    <div class="card-body">
+      <div *ngFor="let description of note.noteDescriptions" class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          [value]="description.text"
+          (input)="onDescriptionChange(description, $event)"
+          (keydown.backspace)="removeDescription(description)"
+        />
+      </div>
+      <button class="btn btn-primary" (click)="addDescription()">Add Row</button>
+    </div>
+  </div>
+</div>
