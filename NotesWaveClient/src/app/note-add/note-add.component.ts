@@ -18,11 +18,28 @@ export class NoteAddComponent{
 
   constructor(private noteService: NoteService) {}
 
+  loadNotes(): void {
+    this.noteService.getNotes().subscribe(notes => {
+      if (notes.length > 0) {
+        this.newNote = notes[0];
+      }
+    });
+  }
+
   addNote() {
     this.noteService.addNote(this.newNote).subscribe({
-      next: (value) => { console.log(value); },
-      error: (error) => { console.error(error); },
-      complete: () => { console.log('Complete'); }
+      next: (createdNote) => {
+        console.log('Note created:', createdNote);
+        this.newNote = createdNote;
+        this.loadNotes();
+      },
+      error: (error) => {
+        console.error('Error creating note:', error);
+      },
+      complete: () => {
+        console.log('Note creation complete');
+      }
     });
   }
 }
+
