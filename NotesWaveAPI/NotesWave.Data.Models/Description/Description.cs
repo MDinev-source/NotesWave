@@ -16,10 +16,10 @@
         public string Id { get; set; }
 
         [MaxLength(200)]
-        public string? Text => "";
+        public string Text { get; set; }
 
         [Required]
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public DescriptionType type => DescriptionType.Title;
+        public DescriptionType Type => DescriptionType.Title;
     }
 }
