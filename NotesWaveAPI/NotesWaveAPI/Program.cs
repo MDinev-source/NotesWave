@@ -10,8 +10,9 @@ builder.Services.AddDbContext<NotesWaveDBContext>(options =>
 );
 
 builder.Services.AddTransient<INotesService, NotesService>();
-
+builder.Services.AddTransient<IDescriptionsService, DescriptionsService>();
 builder.Services.AddControllers();
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
