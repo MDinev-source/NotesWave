@@ -1,9 +1,10 @@
 ﻿namespace NotesWave.Data.Models.Description
 {
-    using NotesWave.Data.Models.Common;
     using NotesWave.Data.Models.Enums;
-    using System.ComponentModel.DataAnnotations;
+    using NotesWave.Data.Models.Common;
     using System.Text.Json.Serialization;
+    using System.ComponentModel.DataAnnotations;
+    using NoteModel = NotesWave.Data.Models.Note;
 
     public class Description : BaseDeletableModel
     {
@@ -21,5 +22,8 @@
         [Required]
         [JsonConverter(typeof(JsonStringEnumConverter))]
         public DescriptionType Type => DescriptionType.Title;
+
+        public string NoteId { get; set; }
+        public NoteModel.Note Note { get; set; }
     }
 }
