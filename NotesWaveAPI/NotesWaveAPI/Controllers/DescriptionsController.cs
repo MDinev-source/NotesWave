@@ -15,7 +15,7 @@
             this.descriptionsService = descriptionsService;
         }
 
-        [HttpPut("descriptions/{descriptionId}")]
+        [HttpPut("{descriptionId}")]
         public async Task<IActionResult> Update(UpdateDescriptionRequestModel updateDescriptionRequestModel, string descriptionId)
         {
             await descriptionsService.UpdateDescription(updateDescriptionRequestModel, descriptionId);
@@ -23,16 +23,16 @@
             return Ok();
         }
 
-        [HttpPost("{noteId}/descriptions")]
-        public async Task<IActionResult> AddDescription(string noteId, [FromBody] string text)
+        [HttpPost("{noteId}")]
+        public async Task<IActionResult> AddDescriptionToNote(string noteId, [FromBody] string text)
         {
             await descriptionsService.AddDescriptionToNote(noteId, text);
 
             return Ok();
         }
 
-        [HttpDelete("descriptions/{descriptionId}")]
-        public async Task<IActionResult> RemoveDescription (string descriptionId)
+        [HttpDelete("{descriptionId}")]
+        public async Task<IActionResult> RemoveDescriptionFromNote (string descriptionId)
         {
             await descriptionsService.RemoveDescriptionFromNote(descriptionId);
 

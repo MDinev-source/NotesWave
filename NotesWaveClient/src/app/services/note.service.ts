@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Note } from '../models/Note';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
