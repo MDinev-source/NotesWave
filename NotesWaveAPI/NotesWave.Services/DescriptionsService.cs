@@ -1,8 +1,8 @@
 ﻿namespace NotesWave.Services
 {
     using NoteWaves.Data;
+    using NotesWave.Data.Models.Note;
     using NotesWave.Services.Contracts;
-    using Microsoft.EntityFrameworkCore;
     using NotesWave.Data.Models.Description;
     using NotesWave.RequestModels.Descriptions;
 
@@ -13,18 +13,55 @@
         {
             this.notesWaveDBContext = notesWaveDBContext; 
         }
-        public async Task<string> UpdateDescription(UpdateDescriptionRequestModel createDescriptionRequestModel, string id)
+
+        public async Task AddDescriptionToNote(string noteId, string text)
+        {
+            Note? note = await notesWaveDBContext
+                .Notes
+                .FindAsync(noteId);
+
+            if (note != null)
+            {
+                Description newDescription = new Description
+                {
+                    Text = text,
+                };
+
+                note.Descriptions.Add(newDescription);
+
+                await notesWaveDBContext.SaveChangesAsync();
+            }
+        }
+
+        public async Task RemoveDescriptionFromNote(string descId)
+        {
+            Description? description = await notesWaveDBContext
+              .Descriptions
+              .FindAsync(descId);
+
+            if (description != null)
+            {
+                notesWaveDBContext
+                    .Descriptions
+                    .Remove(description);
+
+                await notesWaveDBContext.SaveChangesAsync();
+            }
+        }
+
+        public async Task UpdateDescription(UpdateDescriptionRequestModel createDescriptionRequestModel, string id)
         {
             Description? descriptionUpdate = await notesWaveDBContext
                 .Descriptions
-                .FirstOrDefaultAsync(d => d.Id == id);
+                .FindAsync(id);
 
-            if (descriptionUpdate == null)
+            if (descriptionUpdate != null && createDescriptionRequestModel.Text != null)
             {
-                return "";
+                descriptionUpdate.Text = createDescriptionRequestModel.Text;
+
+                await notesWaveDBContext.SaveChangesAsync();
             }
 
-            return descriptionUpdate.Id;
         }
     }
 }

@@ -3,6 +3,10 @@
     using NotesWave.RequestModels.Descriptions;
     public interface IDescriptionsService
     {
-        Task<string> UpdateDescription(UpdateDescriptionRequestModel updateDescriptionRequestModel, string id);
+        Task UpdateDescription(UpdateDescriptionRequestModel updateDescriptionRequestModel, string id);
+
+        Task AddDescriptionToNote(string noteId, string text);
+
+        Task RemoveDescriptionFromNote(string descId);
     }
 }
