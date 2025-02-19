@@ -51,11 +51,11 @@
             }
         }
 
-        public async Task UpdateDescription(UpdateDescriptionRequestModel createDescriptionRequestModel, string id)
+        public async Task UpdateDescription(UpdateDescriptionRequestModel createDescriptionRequestModel)
         {
             Description? descriptionUpdate = await notesWaveDBContext
                 .Descriptions
-                .FindAsync(id);
+                .FindAsync(createDescriptionRequestModel.Id);
 
             if (descriptionUpdate != null && createDescriptionRequestModel.Text != null)
             {
