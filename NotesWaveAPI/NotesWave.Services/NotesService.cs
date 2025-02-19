@@ -4,6 +4,7 @@
     using System.Threading.Tasks;
     using System.Collections.Generic;
     using NotesWave.Data.Models.Note;
+    using NotesWave.Data.Models.Enums;
     using NotesWave.Services.Contracts;
     using Microsoft.EntityFrameworkCore;
     using NotesWave.RequestModels.Notes;
@@ -21,7 +22,8 @@
         {
             Note createNote = new Note
             {
-                Title = createNoteRequestModel.Title
+                Title = createNoteRequestModel.Title,
+                State = NoteState.New
             };
 
             this.data.Notes.Add(createNote);

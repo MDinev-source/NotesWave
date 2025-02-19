@@ -25,7 +25,7 @@
 
         [Required]
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public NoteState State => NoteState.New;
+        public NoteState State { get; set; }
 
         public virtual ICollection<NoteRels> RelatedNotes { get; set; }
 

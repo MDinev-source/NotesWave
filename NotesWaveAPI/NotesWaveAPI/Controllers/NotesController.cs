@@ -1,7 +1,6 @@
 namespace NotesWaveAPI.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
-    using NotesWave.Data.Models.Note;
     using NotesWave.RequestModels.Notes;
     using NotesWave.Services.Contracts;
 

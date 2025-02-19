@@ -2,6 +2,7 @@
 {
     using NoteWaves.Data;
     using NotesWave.Data.Models.Note;
+    using NotesWave.Data.Models.Enums;
     using NotesWave.Services.Contracts;
     using NotesWave.Data.Models.Description;
     using NotesWave.RequestModels.Descriptions;
@@ -25,6 +26,7 @@
                 Description newDescription = new Description
                 {
                     Text = text,
+                    Type = DescriptionType.Title
                 };
 
                 note.Descriptions.Add(newDescription);
@@ -58,6 +60,11 @@
             if (descriptionUpdate != null && createDescriptionRequestModel.Text != null)
             {
                 descriptionUpdate.Text = createDescriptionRequestModel.Text;
+
+                if (createDescriptionRequestModel.Type != descriptionUpdate.Type)
+                {
+                    descriptionUpdate.Type = createDescriptionRequestModel.Type;
+                }
 
                 await notesWaveDBContext.SaveChangesAsync();
             }

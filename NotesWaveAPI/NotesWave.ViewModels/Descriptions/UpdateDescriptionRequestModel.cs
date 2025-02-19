@@ -11,7 +11,7 @@
 
         [Required]
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public DescriptionType type { get; set; }
+        public DescriptionType Type { get; set; }
 
         [Required]
         [MaxLength(200)]
