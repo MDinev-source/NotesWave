@@ -21,7 +21,7 @@
 
         [Required]
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public DescriptionType Type => DescriptionType.Title;
+        public DescriptionType Type { get; set; }
 
         public string NoteId { get; set; }
         public NoteModel.Note Note { get; set; }
