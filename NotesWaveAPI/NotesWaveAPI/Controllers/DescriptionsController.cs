@@ -16,9 +16,9 @@
         }
 
         [HttpPut("{descriptionId}")]
-        public async Task<IActionResult> Update(UpdateDescriptionRequestModel updateDescriptionRequestModel, string descriptionId)
+        public async Task<IActionResult> Update(UpdateDescriptionRequestModel updateDescriptionRequestModel)
         {
-            await descriptionsService.UpdateDescription(updateDescriptionRequestModel, descriptionId);
+            await descriptionsService.UpdateDescription(updateDescriptionRequestModel);
 
             return Ok();
         }
